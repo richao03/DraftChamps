@@ -1,68 +1,207 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid black;
 }
 
-.aRow{
-  align-self:center;
-  background-color:lightgrey;
+.aRow {
+    align-self: center;
+    background-color:#F6F6F6;
 }
 
-.aRow:hover{
-  background-color:white;
-}
-.elseDrafted{
-  background-color:red;
-}
-.active{
-  background-color:lightgreen;
-}
-.eachAvg{
-  display:inline-block;
-  border:1px solid red;
-  margin:10px;
-}
-.draftedPlayers{
-  width:500px;
-  border:1px solid blue;
-  float:right;
-  margin-right:50px;
-}
-.average{
-  margin:auto;
-  border:2px solid red;
-height:50px;
-}
-.database{
-    margin-left:50px;
+.aRow:hover {
+    background-color: white;
 }
 
-.positionTitle{
-  display:block;
-  text-align: left;
-  font-weight: bold;
+.elseDrafted {
+    background-color: red;
+}
+
+.active {
+    background-color: lightgreen;
+}
+
+.eachAvg {
+    display: inline-block;
+    border: 1px solid red;
+    margin: 10px;
+}
+
+.draftedPlayers {
+    float: right;
+    margin-top: 10px;
+    width: 29vw;
+    border: 1px solid blue;
+    margin-right: 20px;
+}
+
+.average {
+    margin: auto;
+    border: 2px solid red;
+    height: 10vh;
+}
+
+.database {
+    margin-top: 10px;
+    font-size: 1em;
+    width: 75vw;
+    margin-left: 20px;
+}
+
+.positionTitle {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+}
+
+.button {
+    margin-bottom: 5px;
+    display: inline-block;
+    margin-right: 5px;
+    height: 25px;
+    min-width: 50px;
+    background: #348AA7;
+    border: none;
+    outline: none;
+    color: white;
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 18px;
+    border-radius: 3px;
+    box-shadow: 0 5px 0px darken(#348AA7, 0%);
+    border-bottom: 2px solid darken(#348AA7, 3%);
+}
+
+.takeAway-Button:hover {
+    background: orange;
+    color: black;
+    box-shadow: 0 4px 1px darken(#348AA7, 5%);
+    border-bottom: 2px solid darken(#348AA7, 8%);
+    transition: all 0.1s ease-in;
+}
+
+.elseDrafted-Button:hover {
+    background: red;
+    color: black;
+    box-shadow: 0 4px 1px darken(#348AA7, 5%);
+    border-bottom: 2px solid darken(#348AA7, 8%);
+    transition: all 0.1s ease-in;
+}
+
+.draft-Button:hover {
+    background: green;
+    box-shadow: 0 4px 1px darken(#348AA7, 5%);
+    border-bottom: 2px solid darken(#348AA7, 8%);
+    transition: all 0.1s ease-in;
+}
+
+.button:active {
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+    box-shadow: none;
+}
+
+
+
+
+@media screen and (min-width: 360px) and (max-width: 1160px) {
+    .eachAvg {
+        text-align: center;
+        display: inline-flex;
+        border: 1px solid red;
+        margin: none;
+        width: 20vw;
+        height: 13vh;
+    }
+
+    .average {
+        align-content: center;
+        margin: auto;
+        height: 15vh;
+        width: 99vw;
+        overflow-y: auto;
+        margin-top: 10px;
+    }
+
+    .database {
+        align-content: center;
+        font-size: .8em;
+        width: 99vw;
+        margin: auto;
+        margin-left: 5px
+    }
+
+    .draftedPlayers {
+        width: 99vw;
+        border: 1px solid blue;
+        margin: auto;
+        margin-top: 10px;
+        float: none !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .App {
+        width: 100vw !important;
+    }
+    .App-header {
+        display: none;
+    }
+
+    .eachAvg {
+        text-align: center;
+        display: inline-flex;
+        border: 1px solid red;
+        float: left;
+        width: 25vw;
+    }
+    .database {
+        margin-left: 0px;
+        width: 100vw !important;
+    }
+    .average {
+        margin: auto;
+        border: none;
+        height: 15vh;
+        width: 100vw;
+    }
+    .draftedPlayers {
+        width: 60vw;
+        border: 1px solid blue;
+        float: right;
+        margin-right: 50px;
+    }
+}
+
+#a0>button {
+    visibility: hidden;
 }
