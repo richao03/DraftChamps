@@ -60,7 +60,7 @@ render(){
   
 return (
   <div className="average">
-    <div className="eachAvg" style={{backgroundColor:`rgba(255,0,0,`{this.WRAvg}`)`}}>WR Average:{this.WRAvg}---WR Drafted: {this.WRcount}</div>
+    <div className="eachAvg">WR Average:{this.WRAvg}---WR Drafted: {this.WRcount}</div>
     <div className="eachAvg">RB Average:{this.RBAvg}---RB Drafted: {this.RBcount}</div>
     <div className="eachAvg">QB Average:{this.QBAvg}---QB Drafted: {this.QBcount}</div>
     <div className="eachAvg">TE Average:{this.TEAvg}---TE Drafted: {this.TEcount}</div>
