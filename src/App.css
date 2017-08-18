@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.aRow{
+  align-self:center;
+  background-color:lightgrey;
+}
+
+.aRow:hover{
+  background-color:white;
+}
+.elseDrafted{
+  background-color:red;
+}
+.active{
+  background-color:lightgreen;
+}
+.eachAvg{
+  display:inline-block;
+  border:1px solid red;
+  margin:10px;
+}
+.draftedPlayers{
+  width:500px;
+  border:1px solid blue;
+  float:right;
+  margin-right:50px;
+}
+.average{
+  margin:auto;
+  border:2px solid red;
+height:50px;
+}
+.database{
+    margin-left:50px;
+}
+
+.positionTitle{
+  display:block;
+  text-align: left;
+  font-weight: bold;
+}
