@@ -59,7 +59,7 @@ td {
 .draftedPlayers {
     float: right;
     margin-top: 10px;
-    width: 29vw;
+    width: 25vw;
     border: 1px solid blue;
     margin-right: 20px;
 }
@@ -72,8 +72,8 @@ td {
 
 .database {
     margin-top: 10px;
-    font-size: 1em;
-    width: 75vw;
+    font-size: .8em;
+    width: 70vw;
     margin-left: 20px;
 }
 
