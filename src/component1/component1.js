@@ -5,6 +5,7 @@ import returnBoris from '../data/borisChen.js';
 import Papa from 'papaparse';
 import $ from 'jquery'
 
+
 class Component1 extends React.Component {
   constructor(props){
     super(props);
@@ -12,18 +13,23 @@ class Component1 extends React.Component {
     this.borisChen = returnBoris();
     this.borisJson = Papa.parse(this.borisChen)
     this.playerList = this.borisJson.data
-    this.init()
+    this.topLine;
+    this.removeThis = this.removeThis.bind(this);
   }
 
-  init(){
 
+  removeThis(arr){
+    this.topLine = arr.splice(0,1)
   }
- 
+
 render(){
+
       let rank = this.playerList.map((stats, index)=>{
+
       return (
-        <tr key={index} id={index} className="aRow">
-        <button  onClick={()=>{this.props.handleClick(index, stats[1], stats[3])}}>+</button>
+
+        <tr key={index} id={'a'+index} className="aRow tablesorter">
+        <button className="draft-Button button" onClick={()=>{this.props.draft(index, stats[1], stats[3])}}>+</button>
              {
                 stats.map((singlePlayer, i) => {
                   return (
@@ -31,15 +37,17 @@ render(){
                   )
                 })
                }
-                  <button onClick={()=>{this.props.takeAway(index, stats[1], stats[3])}}>-</button>
-                  <button onClick={()=>{this.props.elseDrafted(index, stats[1], stats[3])}}>Tooken</button>
+                  <button className="takeAway-Button button" onClick={()=>{this.props.takeAway(index, stats[1], stats[3])}}>-</button>
+                  <button className="elseDrafted-Button button" onClick={()=>{this.props.elseDrafted(index, stats[1], stats[3])}}>Stolen</button>
         </tr>
       )
     })
 return (
-  <div className="database">
+  <table id="database" className="database">
+  <tbody>
   {rank}
-  </div>
+  </tbody>
+  </table>
   )
 }
 }

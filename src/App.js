@@ -15,12 +15,12 @@ class App extends Component {
     this.borisJson = Papa.parse(this.borisChen)
     this.playerList = this.borisJson.data
     this.state = {onTeam:[]}
-    this.handleClick = this.handleClick.bind(this)
+    this.draft = this.draft.bind(this)
     this.takeAway = this.takeAway.bind(this)
   }
   
-  handleClick(first, second, third){
-     let target = document.getElementById(first)
+  draft(first, second, third){
+     let target = document.getElementById("a"+first)
     for(let i = 0 ; i < this.state.onTeam.length; i++){
       if(this.state.onTeam[i][0]==second){
         $(target).toggleClass("active")
@@ -31,15 +31,11 @@ class App extends Component {
       } 
     }
     this.setState({onTeam: [...this.state.onTeam, [second, third]]})
-    
     $(target).toggleClass("active")
-    console.log("clicked", first)
-    console.log("second", second)
-    console.log("third", third)
   }
 
   takeAway(first, second, third){
-     let target = document.getElementById(first)
+     let target = document.getElementById("a"+first)
      for(let i = 0 ; i < this.state.onTeam.length; i++){
       if(this.state.onTeam[i][0]==second){
         $(target).toggleClass("active")
@@ -51,8 +47,17 @@ class App extends Component {
     }
   }
 
+  componentWillReceiveProps(nextState) {
+    if(JSON.stringify(this.state.onTeam) !== JSON.stringify(nextState.onTeam)) // Check if it's a new user, you can also use some unique, like the ID
+    {
+        this.setState({renew:true})
+} 
+}
+  
+
+
   elseDrafted(first, second, third){
-       let target = document.getElementById(first)
+       let target = document.getElementById("a"+first)
       $(target).toggleClass("elseDrafted")
 
 
@@ -69,7 +74,7 @@ class App extends Component {
         <div className="App-intro">
         <Component3 onTeam={this.state.onTeam} />
         <Component2  onTeam={this.state.onTeam}/>
-      <Component1  handleClick={this.handleClick} takeAway={this.takeAway} elseDrafted={this.elseDrafted}/>
+      <Component1  draft={this.draft} takeAway={this.takeAway} elseDrafted={this.elseDrafted}/>
       
          </div>
       </div>

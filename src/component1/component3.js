@@ -11,6 +11,20 @@ class Component3 extends React.Component {
     this.borisChen = returnBoris();
     this.borisJson = Papa.parse(this.borisChen)
     this.playerList = this.borisJson.data
+
+    this.allDrafted
+  }
+
+roundNum(num){
+    return Math.round(num*10)/10;
+  };
+ 
+// getAllDrafted(arr){
+//   return arr.
+// }
+
+
+render(){
     this.WR = 0;
     this.WRcount = 0;
     this.WRAvg = 0;
@@ -23,39 +37,34 @@ class Component3 extends React.Component {
     this.TE = 0;
     this.TEcount = 0;
     this.TEAvg = 0;
-    this.DE = 0;
-  }
 
- 
-render(){
-  let allDrafted = this.props.onTeam[this.props.onTeam.length-1]
-  console.log("this is AD", allDrafted)
-  if(allDrafted){
-    if(allDrafted[1][0]==="W"){
+  this.props.onTeam.map((single,index)=>{
+    if(single[1][0]==="W"){
       this.WRcount++
-      var matches = allDrafted[1].match(/\d+$/)
+      var matches = single[1].match(/\d+$/)
       this.WR += Math.abs(parseInt(matches[0])-100)
-      this.WRAvg = this.WR/parseInt(this.WRcount)
+      this.WRAvg = this.roundNum(this.WR/parseInt(this.WRcount))
     }
-      if(allDrafted[1][0]==="R"){
+      if(single[1][0]==="R"){
       this.RBcount++
-      var matches = allDrafted[1].match(/\d+$/)
+      var matches = single[1].match(/\d+$/)
       this.RB += Math.abs(parseInt(matches[0])-100)
-      this.RBAvg = this.RB/parseInt(this.RBcount)
+      this.RBAvg = this.roundNum(this.RB/parseInt(this.RBcount))
     }
-      if(allDrafted[1][0]==="Q"){
+      if(single[1][0]==="Q"){
       this.QBcount++
-      var matches = allDrafted[1].match(/\d+$/)
+      var matches = single[1].match(/\d+$/)
       this.QB += Math.abs(parseInt(matches[0])-100)
-      this.QBAvg = this.QB/parseInt(this.QBcount)
+      this.QBAvg = this.roundNum(this.QB/parseInt(this.QBcount))
     }
-      if(allDrafted[1][0]==="T"){
+      if(single[1][0]==="T"){
       this.TEcount++
-      var matches = allDrafted[1].match(/\d+$/)
+      var matches = single[1].match(/\d+$/)
       this.TE += Math.abs(parseInt(matches[0])-100)
-      this.TEAvg = this.TE/parseInt(this.TEcount)
+      this.TEAvg = this.roundNum(this.TE/parseInt(this.TEcount))
     }
-  }
+  })
+
 
   
 return (
