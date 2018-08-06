@@ -20,12 +20,22 @@ class Component1 extends React.Component {
 
   removeThis(arr){
     this.topLine = arr.splice(0,1)
+this.topLine[0].unshift("")
+this.topLine[0].push("")
   }
 
 render(){
+      this.removeThis(this.playerList)
+
+      let categories = this.topLine.map((info, index)=>{
+       return(
+          info.map((category, index)=>{
+            return (<th>{category}</th>)
+          })
+        )
+      })
 
       let rank = this.playerList.map((stats, index)=>{
-
       return (
 
         <tr key={index} id={'a'+index} className="aRow tablesorter">
@@ -43,10 +53,13 @@ render(){
       )
     })
 return (
-  <table id="database" className="database">
-  <tbody>
-  {rank}
-  </tbody>
+  <table id="database" className="database tablesorter">
+    <thead>
+      <tr className="aRow tablesorter">{categories}</tr>
+    </thead>
+    <tbody>
+      {rank}
+    </tbody>
   </table>
   )
 }
